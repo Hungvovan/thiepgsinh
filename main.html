@@ -31,14 +31,39 @@
             <div class="details">
                 <h4 class="color2 margin">(MERRY CHRISTMAS)</h4>
                 <p>Noel đến rồi.</p>
-                <p>Chúc quý ngài,ân nhân và bạn bè</p>
+                <p>Chúc quý ngài, ân nhân và bạn bè</p>
                 <p>có một Giáng Sinh đầy ắp tiếng cười</p>
-                <p>và hạnh phúc,bên những người thân</p>
-                <p class="text-right">Chúc mừng Giáng Sinh!</p>
+                <p>và hạnh phúc, bên những người thân.</p>
+                <p class="text-right">Giáng Sinh an lành</p>
                 <p class="text-right">Văn Hưng</p>
             </div>
         </div>
     </div>
+
+   
+    <audio id="backgroundMusic" autoplay muted loop>
+        <source src="audio/we-wish-you-a-merry-christmas-175675.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+
+    <script>
+     
+        window.addEventListener('load', function() {
+            const audio = document.getElementById('backgroundMusic');
+            audio.play().catch(error => {
+                console.log("Không thể tự động phát nhạc (muted):", error);
+            });
+        });
+
+        // Bật tiếng khi người dùng click vào bất kỳ đâu trên trang
+        document.body.addEventListener('click', function() {
+            const audio = document.getElementById('backgroundMusic');
+            if (audio.muted) {
+                audio.muted = false; // Bỏ chế độ mute
+                audio.play().catch(err => console.log('Trình duyệt ngăn chặn phát nhạc:', err));
+            }
+        });
+    </script>
 
     <script src="pen.js"></script>
 </body>
